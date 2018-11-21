@@ -2,14 +2,17 @@ plugins {
     kotlin("jvm") version "1.3.0"
 }
 
+val javafxControlsVersion: String by project
+val kotlinCoroutinesVersion: String by project
+
 repositories {
     jcenter()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.0.1")
-    implementation("org.openjfx:javafx-controls:11")
-    implementation("org.openjfx:javafx-graphics:11")
-    implementation("org.openjfx:javafx-controls:11")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:$kotlinCoroutinesVersion")
+    implementation("org.openjfx:javafx-controls:$javafxControlsVersion")
+    implementation("org.openjfx:javafx-graphics:$javafxControlsVersion")
+    implementation("org.openjfx:javafx-controls:$javafxControlsVersion")
 }
