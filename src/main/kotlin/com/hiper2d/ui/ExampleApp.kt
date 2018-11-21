@@ -10,7 +10,9 @@ import javafx.scene.shape.Circle
 import javafx.scene.text.Text
 import javafx.stage.Stage
 
-class Main: Application() {
+import kotlinx.coroutines.javafx.JavaFx as Main
+
+class ExampleApp: Application() {
 
     val hello = Text("Hello World!").apply {
         fill = Color.valueOf("#C0C0C0")
@@ -43,5 +45,5 @@ fun setup(hello: Text, fab: Circle) {
 }
 
 fun main(args: Array<String>) {
-    Application.launch(Main::class.java, *args)
+    Application.launch(ExampleApp::class.java, *args)
 }
