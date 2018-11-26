@@ -9,18 +9,22 @@ import javafx.scene.paint.Color
 import javafx.scene.shape.Circle
 import javafx.scene.text.Text
 import javafx.stage.Stage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 import kotlinx.coroutines.javafx.JavaFx as Main
 
 class ExampleApp: Application() {
 
-    val hello = Text("Hello World!").apply {
+    private val hello = Text("Hello World!").apply {
         fill = Color.valueOf("#C0C0C0")
     }
 
-    val fab = Circle(20.0, Color.valueOf("#FF4081"))
+    private val fab = Circle(20.0, Color.valueOf("#FF4081"))
 
-    val root = StackPane().apply {
+    private val root = StackPane().apply {
         children += hello
         children += fab
         StackPane.setAlignment(hello, Pos.CENTER)
@@ -28,7 +32,7 @@ class ExampleApp: Application() {
         StackPane.setMargin(fab, Insets(15.0))
     }
 
-    val scene = Scene(root, 240.0, 380.0).apply {
+    private val scene = Scene(root, 240.0, 380.0).apply {
         fill = Color.valueOf("#303030")
     }
 
@@ -41,7 +45,13 @@ class ExampleApp: Application() {
 }
 
 fun setup(hello: Text, fab: Circle) {
-    // placeholder
+    GlobalScope.launch(Dispatchers.Main) {
+        (10 downTo 1).forEach {
+            hello.text = "Counting $it ..."
+            delay(500)
+        }
+        hello.text = "Done!"
+    }
 }
 
 fun main(args: Array<String>) {
