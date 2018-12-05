@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.3.0"
+    kotlin("jvm") version "1.3.10"
 }
 
 val javafxControlsVersion: String by project
