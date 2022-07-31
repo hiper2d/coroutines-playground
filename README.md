@@ -64,6 +64,24 @@ val f: Factory<MyClass> = MyClass
 f.create()
 ```
 
+Singleton example
+```kotlin
+class Singleton private constructor() {
+    companion object {
+        val instance = Singleton()
+    }
+}
+
+class LazySingleton private constructor() {
+    companion object {
+        val instance: UtilProject by lazy { UtilProject() }       
+    }
+}
+
+Singleton.instance
+LazySingleton.instance
+```
+
 ### Enums
 
 ```kotlin
@@ -139,6 +157,11 @@ aCopy2.joinToString(",", "[", "]") // [1,2,3,0,0,0]
 val arr4 = arrayOf(1, 2, 3) // array of Int objects
 val arr5 = arrayOfNulls<Int?>(3) // array of Int objects initialized as Nulls
 val arr6 = Array(3) { 0 } // array of Int objects initialized as 0
+```
+
+Matrix
+```kotlin
+val a: Array<IntArray> = Array(3) { IntArray(3) }
 ```
 
 ### List
@@ -261,7 +284,7 @@ val c : CharArray = CharArray(9) { 'a' + it }
 c.concatToString()
 ```
 
-### Math
+## Math
 
 ```kotlin
 import kotlin.math.ceil
