@@ -294,6 +294,7 @@ val b = 2
 a / b // 2
 a % b // 1
 
+// Divide to get double
 val c = a.toDouble() / b // 2.5
 ceil(c) // 3.0
 
