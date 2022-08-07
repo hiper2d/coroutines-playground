@@ -146,8 +146,11 @@ a1.sortDescending()
 val a1reversed = a1.reversed()
 val a1Sorted = a1.sorted()
 
+// Concat Array
 val aConcat: IntArray = a1 + a2
 aConcat.sliceArray(0..2) // [1,2,3] INCLUSIVE because arg is range
+
+// Copy Array
 val aCopy = aConcat.copyOf()
 val aCopy2 = aConcat.copyOfRange(0, 2) // [1,2,3] NOT INCLUSIVE as arg isn't range
 
@@ -199,6 +202,9 @@ l.remove() // 2; throws NoSuchElementException if empty
 // Remove tail
 l.removeLast() // 3; throws NoSuchElementException if empty
 l.pollLast() // null
+
+//Copy list
+val copy = l.toMutableList()
 ```
 
 ### Map
