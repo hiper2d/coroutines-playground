@@ -252,6 +252,7 @@ l.addFirst(2)
 val a = arrayOf("one", "two", "three")
 val l = listOf(1, 2, 3)
 val m = mapOf(1 to 1, 2 to 2)
+val m2 = mutableMapOf(1 to 1)
 
 // foreach
 a.forEach { println(it) }
