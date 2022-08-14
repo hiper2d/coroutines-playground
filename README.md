@@ -205,6 +205,9 @@ l.pollLast() // null
 
 //Copy list
 val copy = l.toMutableList()
+
+//Matrix
+val m = mutableListOf<MutableList<Int>>()
 ```
 
 ### Map
