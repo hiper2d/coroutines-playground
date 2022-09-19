@@ -1,104 +1,103 @@
 package interview.max_frequency_deviation;
 
+import java.util.function.Function;
+
 public class SolutionTest {
 
     public static void main(String[] args) {
-        EasyTests.runAllTests();
-        AdvancedTests.runAllTests();
+        Solution solution = new Solution();
+        EasyTests.runAllTests(solution::superOptimalMaxDeviation);
+        AdvancedTests.runAllTests(solution::superOptimalMaxDeviation);
     }
 
     private static class EasyTests {
 
-        private final static Solution solution = new Solution();
-
-        public static void runAllTests() {
-            testExample1();
-            testExample2();
-            testExample3();
-            testExample4();
-            testExample5();
-            testExample6();
-            testExample7();
-            testExample8();
-            testExample9();
+        public static void runAllTests(Function<String, Integer> func) {
+            testExample1(func);
+            testExample2(func);
+            testExample3(func);
+            testExample4(func);
+            testExample5(func);
+            testExample6(func);
+            testExample7(func);
+            testExample8(func);
+            testExample9(func);
         }
 
-        private static void testExample1() {
+        private static void testExample1(Function<String, Integer> func) {
             String input = "bbacccabab";
             int expectedOut = 2;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample2() {
+        private static void testExample2(Function<String, Integer> func) {
             String input = "aaaaaa";
             int expectedOut = 0;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample3() {
+        private static void testExample3(Function<String, Integer> func) {
             String input = "abdbcdacbcadbbc";
             int expectedOut = 3;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample4() {
+        private static void testExample4(Function<String, Integer> func) {
             String input = "cccaabbccc";
             int expectedOut = 4;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample5() {
+        private static void testExample5(Function<String, Integer> func) {
             String input = "z";
             int expectedOut = 0;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample6() {
+        private static void testExample6(Function<String, Integer> func) {
             String input = "acbbc";
             int expectedOut = 1;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample7() {
+        private static void testExample7(Function<String, Integer> func) {
             String input = "baccabcbc";
             int expectedOut = 3;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample8() {
+        private static void testExample8(Function<String, Integer> func) {
             String input = "beaffcabaecdeadccedaadaeddbfccfdfadcfbccebdbcdbcacbeecaabfccccddbcafcf";
             int expectedOut = 36;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
 
-        private static void testExample9() {
+        private static void testExample9(Function<String, Integer> func) {
             String input = "bbacccababcabaaccbaaaaabaabccccacaaccbccbbabcabcacbbbcaabcccccaabca";
             int expectedOut = 41;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
     }
 
     private static class AdvancedTests {
 
-        private final static Solution solution = new Solution();
-
-        public static void runAllTests() {
-            testExample1();
+        public static void runAllTests(Function<String, Integer> func) {
+            testExample1(func);
         }
 
-        private static void testExample1() {
+        private static void testExample1(Function<String, Integer> func) {
             String input = "lshpdygqfgdpxrvjafngxjibtlmkfpyyxyniiacatimnjhdbdcqnrwehmhlxsxrreiwgotl";
             int expectedOut = 88;
-            int actualOut = solution.maxDeviation(input);
+            int actualOut = func.apply(input);
             printTestResult(input, expectedOut, actualOut);
         }
     }

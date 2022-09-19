@@ -1,5 +1,7 @@
 package interview.max_frequency_deviation;
 
+import static interview.max_frequency_deviation.KadaneMaxSumWithAtLeastOneNegative.maxSumByKadaneAlgorithm;
+
 public class Solution {
 
     /**
@@ -43,8 +45,38 @@ public class Solution {
      * Note that for (max, min) pair you calculate the sum only if 1 and -1 present after the replacement.
      */
     public int superOptimalMaxDeviation(String s) {
-        return 0;
+        int padding = 'a';
+        int n = s.length();
+        int best = 0;
+
+        for (int max = 0; max < 26; max++) {
+            for (int min = 0; min < 26; min++) {
+                if (max == min) {
+                    continue;
+                }
+                int[] t = new int[n];
+                boolean metMin = false;
+                for (int k = 0; k < n; k++) {
+                    char c = s.charAt(k);
+                    if (c - padding == max) {
+                        t[k] = 1;
+                    } else if (c - padding == min) {
+                        metMin = true;
+                        t[k] = -1;
+                    } else {
+                        t[k] = 0;
+                    }
+                }
+                if (metMin) {
+                    best = Math.max(best, maxSumByKadaneAlgorithm(t));
+                }
+            }
+        }
+
+        return best;
     }
+
+
 
     private int[][] precomputePrefixLetterCount(String s) {
         int n = s.length();
